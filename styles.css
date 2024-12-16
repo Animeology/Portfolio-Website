@@ -1,0 +1,130 @@
+body {
+  font-family: 'Times New Roman', Times, serif;
+  background-color: aliceblue;
+  color: #333;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  margin-top: 50px;
+}
+
+h2 {
+  color: black;
+  text-align: center;
+  margin: auto;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.skill {
+  padding: 1rem;
+  background-color: black;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.button {
+  padding: 0.8rem 1.5rem;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 0.5rem;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+#home {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(to right, black, red);
+  color: white;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 1rem 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+.image-container {
+  max-width: 300px;
+  margin: 0, auto;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  max-width: 100%; /* Scale image to fit its container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Optional: Add rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+}
+
+
+.about-container {
+  display: flex; /* Align children (text and photo) side by side */
+  align-items: center; /* Vertically center them */
+  gap: 1rem; /* Add space between the items */
+  flex-wrap: wrap; /* Ensure they stack on smaller screens */
+  margin: 2rem 0; /* Add some spacing around the section */
+}
+
+.about-text {
+  flex: 1; /* Allow the text to take up available space */
+}
+
+.about-photo {
+  flex: 1; /* Allow the image to take up available space */
+  text-align: center; /* Center the image horizontally if it's smaller */
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+#about {
+  background: linear-gradient(90deg, red, orange, pink);
+  background-size: 300% 300%;
+  animation: gradientAnimation 8s ease infinite;
+  padding: 2rem;
+  font-size: 20px;
+  color: black;
+  margin-bottom: 35px;
+}
+
