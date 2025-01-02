@@ -11,6 +11,12 @@ h1 {
 }
 
 h2 {
+  color: white;
+  text-align: center;
+  margin: auto;
+}
+
+.headers {
   color: black;
   text-align: center;
   margin: auto;
@@ -24,9 +30,31 @@ h2 {
   margin-top: 20px;
 }
 
-.skill {
+.legend {
+  color: black;
+  text-align: left;
+  margin: auto;
+}
+
+.skill-good {
   padding: 1rem;
-  background-color: black;
+  background-color: green;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.skill-moderate {
+  padding: 1rem;
+  background-color: orange;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.skill-poor {
+  padding: 1rem;
+  background-color: red;
   color: #fff;
   border-radius: 8px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
