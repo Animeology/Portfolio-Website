@@ -36,6 +36,33 @@ h2 {
   margin: auto;
 }
 
+.green-square {
+  width: 10px; /* Width of the square */
+  height: 10px; /* Height of the square */
+  background-color: green; /* Color of the square (e.g., blue) */
+  border: 2px solid #2c3e50; /* Optional: Border around the square */
+  border-radius: 5px; /* Optional: Rounded corners */
+  margin: 5px; /* Optional: Space around the square */
+}
+
+.orange-square {
+  width: 10px; /* Width of the square */
+  height: 10px; /* Height of the square */
+  background-color: orange; /* Color of the square (e.g., blue) */
+  border: 2px solid #2c3e50; /* Optional: Border around the square */
+  border-radius: 5px; /* Optional: Rounded corners */
+  margin: 5px; /* Optional: Space around the square */
+}
+
+.red-square {
+  width: 10px; /* Width of the square */
+  height: 10px; /* Height of the square */
+  background-color: red; /* Color of the square (e.g., blue) */
+  border: 2px solid #2c3e50; /* Optional: Border around the square */
+  border-radius: 5px; /* Optional: Rounded corners */
+  margin: 5px; /* Optional: Space around the square */
+}
+
 .skill-good {
   padding: 1rem;
   background-color: green;
