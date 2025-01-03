@@ -36,6 +36,13 @@ h2 {
   margin: auto;
 }
 
+.legend-box {
+  border: 2px solid black;
+  padding: 10px;
+  width: 100px;
+  text-align: left;
+}
+
 .green-square {
   width: 10px; /* Width of the square */
   height: 10px; /* Height of the square */
@@ -175,7 +182,7 @@ footer {
   text-align: center;
 }
 
-img {
+.footer-image {
   width: 50px;
   height: auto;
   margin: 10px;
