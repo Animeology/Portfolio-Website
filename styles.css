@@ -72,6 +72,14 @@ h2 {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.soft-skill {
+  padding: 1rem;
+  background-color: black;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 .legend {
   color: black;
   text-align: left;
@@ -80,7 +88,7 @@ h2 {
 
 .legend-box {
   display: grid;
-  flex: .5;
+  flex: .3;
   border: 2px solid black;
   padding: 10px;
   width: 100px;
@@ -104,6 +112,16 @@ h2 {
   border-radius: 5px; /* Optional: Rounded corners */
   margin: 5px; /* Optional: Space around the square */
 }
+
+.black-square {
+  width: 10px; /* Width of the square */
+  height: 10px; /* Height of the square */
+  background-color: black; /* Color of the square (e.g., blue) */
+  border: 2px solid #2c3e50; /* Optional: Border around the square */
+  border-radius: 5px; /* Optional: Rounded corners */
+  margin: 5px; /* Optional: Space around the square */
+}
+
 /* */
 
 /* Header Section */
@@ -125,7 +143,7 @@ nav ul {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
-  margin: ;
+  margin: 0;
   padding: 0;
 }
 
