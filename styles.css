@@ -1,3 +1,4 @@
+/* General */
 body {
   font-family: 'Times New Roman', Times, serif;
   background-color: aliceblue;
@@ -16,12 +17,29 @@ h2 {
   margin: auto;
 }
 
+.button {
+  padding: 0.8rem 1.5rem;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 0.5rem;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
 .headers {
   color: black;
   text-align: center;
   margin: auto;
 }
+/* */
 
+/* Skill Section */
 .skill-section {
   display: flex;
   justify-content: space-between;
@@ -86,24 +104,9 @@ h2 {
   border-radius: 5px; /* Optional: Rounded corners */
   margin: 5px; /* Optional: Space around the square */
 }
+/* */
 
-
-
-.button {
-  padding: 0.8rem 1.5rem;
-  background-color: #007bff;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  margin: 0.5rem;
-  display: inline-block;
-  transition: background-color 0.3s ease;
-}
-
-.button:hover {
-  background-color: #0056b3;
-}
-
+/* Header Section */
 #home {
   text-align: center;
   padding: 4rem 2rem;
@@ -122,7 +125,7 @@ nav ul {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
-  margin: 0;
+  margin: ;
   padding: 0;
 }
 
@@ -135,22 +138,18 @@ nav ul li a {
 nav ul li a:hover {
   text-decoration: underline;
 }
+/* */
 
-.image-container {
-  max-width: 300px;
-  margin: 0, auto;
+/* About Section */
+#about {
+  background: linear-gradient(90deg, red, orange, pink);
+  background-size: 300% 300%;
+  animation: gradientAnimation 8s ease infinite;
+  padding: 2rem;
+  font-size: 20px;
+  color: black;
+  margin-bottom: 35px;
 }
-
-.image-container img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  max-width: 100%; /* Scale image to fit its container */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 10px; /* Optional: Add rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
-}
-
 
 .about-container {
   display: flex; /* Align children (text and photo) side by side */
@@ -175,16 +174,23 @@ nav ul li a:hover {
   100% { background-position: 0% 50%; }
 }
 
-#about {
-  background: linear-gradient(90deg, red, orange, pink);
-  background-size: 300% 300%;
-  animation: gradientAnimation 8s ease infinite;
-  padding: 2rem;
-  font-size: 20px;
-  color: black;
-  margin-bottom: 35px;
+.image-container {
+  max-width: 300px;
+  margin: 0, auto;
 }
 
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  max-width: 100%; /* Scale image to fit its container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Optional: Add rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+}
+/* */
+
+/* Footer */
 footer {
   text-align: center;
 }
@@ -199,3 +205,4 @@ footer {
   margin: 10px;
   text-align: center;
 }
+/* */
