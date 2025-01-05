@@ -22,12 +22,36 @@ h2 {
   margin: auto;
 }
 
+.skill-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .skills-grid {
+  flex: 2.5;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(7, minmax(120px, 1fr));
   gap: 1rem;
   text-align: center;
   margin-top: 20px;
+  margin-right: 20px;
+}
+
+.skill-good {
+  padding: 1rem;
+  background-color: green;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.skill-moderate {
+  padding: 1rem;
+  background-color: orange;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .legend {
@@ -37,6 +61,8 @@ h2 {
 }
 
 .legend-box {
+  display: grid;
+  flex: .5;
   border: 2px solid black;
   padding: 10px;
   width: 100px;
@@ -62,21 +88,6 @@ h2 {
 }
 
 
-.skill-good {
-  padding: 1rem;
-  background-color: green;
-  color: #fff;
-  border-radius: 8px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.skill-moderate {
-  padding: 1rem;
-  background-color: orange;
-  color: #fff;
-  border-radius: 8px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-}
 
 .button {
   padding: 0.8rem 1.5rem;
