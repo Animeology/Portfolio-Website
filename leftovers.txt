@@ -1,0 +1,47 @@
+  <!-- Skills -->
+  <section id="skills">
+    <h2 class="headers">Skills</h2>
+    <div class="skill-section">
+      <div class="skills-grid">
+        <div class="skill-good">C++</div>
+        <div class="skill-good">C#</div>
+        <div class="skill-moderate">HTML</div>
+        <div class="skill-moderate">CSS</div>
+        <div class="skill-moderate">Git & Github</div>
+        <div class="skill-moderate">Java</div>
+        <div class="skill-moderate">Javascript</div>
+        <div class="soft-skill">Communication</div>
+        <div class="soft-skill">Teamwork</div>
+        <div class="soft-skill">Typing</div>
+        <div class="soft-skill">Time Management</div>
+        <div class="soft-skill">Organization</div>
+      </div>
+      <div class="legend-box">
+        <h2 class="legend">Legend</h2>
+        <div>Great Proficiency</div>
+        <div class="green-square"></div>
+        <div>Moderate Proficiency</div>
+        <div class="orange-square"></div>
+        <div>Soft Skills</div>
+        <div class="black-square"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2 class="headers">Featured Projects</h2>
+    <div class="project">
+      <img src="project1-screenshot.jpg" alt="Project 1 Screenshot">
+      <h3>Project Name</h3>
+      <p>A brief description of the project, its purpose, and the tech stack used.</p>
+      <a href="project-details.html" class="button">Learn More</a>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="headers">Let's Work Together!</h2>
+    <p class="contact-text">If you're looking for a developer who's passionate about technology and problem-solving,
+      let's connect.</p>
+  </section>
