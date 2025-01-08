@@ -1,7 +1,7 @@
 /* General */
 body {
   font-family: 'Times New Roman', Times, serif;
-  background-color: blue;
+  background-color: white;
   color: #333;
 }
 
@@ -108,10 +108,43 @@ header {
   height: auto;
 }
 
+.text-bubble {
+  position: absolute;
+  top: 50%; /* Adjust this for your preferred vertical position */
+  left: 120%; /* Position the bubble to the right of the image */
+  transform: translateY(-50%); /* Center the bubble vertically */
+  background-color: #f4f4f9;
+  color: #333;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 2px solid #333;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  display: none; /* Initially hidden */
+  z-index: 10;
+}
+
+/* Add a triangle (the bubble "pointer") */
+.text-bubble::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -10px; /* Position the triangle at the bubble's left */
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #f4f4f9 transparent transparent; /* Match the bubble background */
+}
+
+/* Show bubble on hover */
+.funny-picture:hover .text-bubble {
+  display: block; /* Show the bubble when hovering */
+
 #hover-image {
   transition: opacity 0.3s ease-in-out;
-  width: 500px;
-  height: auto;
 }
 
 .navbar {
