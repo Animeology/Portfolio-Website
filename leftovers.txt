@@ -45,3 +45,155 @@
     <p class="contact-text">If you're looking for a developer who's passionate about technology and problem-solving,
       let's connect.</p>
   </section>
+
+  /* Skill Section */
+.skill-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skills-grid {
+  flex: 2.5;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(120px, 1fr));
+  gap: 1rem;
+  text-align: center;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.skill-good {
+  padding: 1rem;
+  background-color: green;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.skill-moderate {
+  padding: 1rem;
+  background-color: orange;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.soft-skill {
+  padding: 1rem;
+  background-color: black;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.legend {
+  color: black;
+  text-align: left;
+  margin: auto;
+}
+
+.legend-box {
+  display: grid;
+  flex: .3;
+  border: 2px solid black;
+  padding: 10px;
+  width: 100px;
+  text-align: left;
+}
+
+.green-square {
+  width: 10px; /* Width of the square */
+  height: 10px; /* Height of the square */
+  background-color: green; /* Color of the square (e.g., blue) */
+  border: 2px solid #2c3e50; /* Optional: Border around the square */
+  border-radius: 5px; /* Optional: Rounded corners */
+  margin: 5px; /* Optional: Space around the square */
+}
+
+.orange-square {
+  width: 10px; /* Width of the square */
+  height: 10px; /* Height of the square */
+  background-color: orange; /* Color of the square (e.g., blue) */
+  border: 2px solid #2c3e50; /* Optional: Border around the square */
+  border-radius: 5px; /* Optional: Rounded corners */
+  margin: 5px; /* Optional: Space around the square */
+}
+
+.black-square {
+  width: 10px; /* Width of the square */
+  height: 10px; /* Height of the square */
+  background-color: black; /* Color of the square (e.g., blue) */
+  border: 2px solid #2c3e50; /* Optional: Border around the square */
+  border-radius: 5px; /* Optional: Rounded corners */
+  margin: 5px; /* Optional: Space around the square */
+}
+
+/* */
+
+/* About Section */
+#about {
+  background: linear-gradient(90deg, red, orange, pink);
+  background-size: 300% 300%;
+  animation: gradientAnimation 8s ease infinite;
+  padding: 2rem;
+  font-size: 20px;
+  color: black;
+  margin-bottom: 35px;
+}
+
+.about-container {
+  display: flex; /* Align children (text and photo) side by side */
+  align-items: center; /* Vertically center them */
+  gap: 1rem; /* Add space between the items */
+  flex-wrap: wrap; /* Ensure they stack on smaller screens */
+  margin: 2rem 0; /* Add some spacing around the section */
+}
+
+.about-text {
+  flex: 1; /* Allow the text to take up available space */
+}
+
+.about-photo {
+  flex: 1; /* Allow the image to take up available space */
+  text-align: center; /* Center the image horizontally if it's smaller */
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.image-container {
+  max-width: 300px;
+  margin: 0, auto;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  max-width: 100%; /* Scale image to fit its container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Optional: Add rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+}
+/* */
+
+/* Footer */
+footer {
+  text-align: center;
+}
+
+.contact-text {
+  text-align: center;
+}
+
+.footer-image {
+  width: 50px;
+  height: auto;
+  margin: 10px;
+  text-align: center;
+}
+/* */
