@@ -1,8 +1,22 @@
 /* General */
 body {
   font-family: 'Times New Roman', Times, serif;
-  background-color: white;
+  background: linear-gradient(60deg, red, pink, blue);
+  background-size: 400% 400%;
+  animation: gradient-animation 8s infinite;
   color: #333;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 h1 {
@@ -45,7 +59,7 @@ p {
 /* */
 
 
-/* Header Section */
+/* Home Section */
 #home {
   text-align: center;
   padding: 4rem 2rem;
@@ -89,13 +103,9 @@ header {
 }
 
 .funny-picture {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 50%;
+  display: inline-block;
   padding-right: 25%;
-  text-align: center;
+  position: relative;
 }
 
 .funny-picture p {
@@ -110,8 +120,8 @@ header {
 
 .text-bubble {
   position: absolute;
-  top: 50%; /* Adjust this for your preferred vertical position */
-  left: 120%; /* Position the bubble to the right of the image */
+  top: 5%; /* Adjust this for your preferred vertical position */
+  right: 10%; /* Position the bubble to the right of the image */
   transform: translateY(-50%); /* Center the bubble vertically */
   background-color: #f4f4f9;
   color: #333;
@@ -136,12 +146,13 @@ header {
   height: 0;
   border-style: solid;
   border-width: 10px 10px 10px 0;
-  border-color: transparent #f4f4f9 transparent transparent; /* Match the bubble background */
+  border-color: transparent #333 transparent transparent; /* Match the bubble background */
 }
 
 /* Show bubble on hover */
 .funny-picture:hover .text-bubble {
   display: block; /* Show the bubble when hovering */
+}
 
 #hover-image {
   transition: opacity 0.3s ease-in-out;
@@ -191,4 +202,3 @@ header {
   padding: 5em 0;
 }
 /* */
-
