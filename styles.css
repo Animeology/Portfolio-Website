@@ -5,6 +5,7 @@ body {
   background-size: 400% 400%;
   animation: gradient-animation 8s infinite;
   color: #333;
+  
 }
 
 @keyframes gradient-animation {
@@ -55,6 +56,11 @@ h2 {
 
 p {
   text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem 0;
 }
 /* */
 
@@ -187,18 +193,5 @@ header {
   color: #00bcd4;
 }
 
-#about {
-  background-color: #f4f4f4;
-  padding: 5em 0;
-}
-
-#projects {
-  background-color: #e2e2e2;
-  padding: 5em 0;
-}
-
-#contact {
-  background-color: #d6d6d6;
-  padding: 5em 0;
-}
 /* */
+
