@@ -17,7 +17,7 @@ body {
   }
   100% {
     background-position: 0% 50%;
-  }
+  } 
 }
 
 h1 {
@@ -44,6 +44,16 @@ h2 {
   transition: background-color 0.3s ease;
 }
 
+header {
+  background-color: #333;
+  color: white;
+  padding: 0.5em 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
 .button:hover {
   background-color: #0056b3;
 }
@@ -58,10 +68,15 @@ p {
   text-align: center;
 }
 
-footer {
-  text-align: center;
-  padding: 1rem 0;
+p.bottom-text {
+  position: fixed; /* Sticks to the viewport */
+  bottom: 0;       /* Positions it at the bottom */
+  width: 100%;     /* Makes it span the full width of the page */
+  text-align: center; /* Centers the text */
+  padding: 10px;   /* Optional: padding for spacing */
+  z-index: 100;    /* Keeps it above other elements */
 }
+
 /* */
 
 
