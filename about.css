@@ -1,0 +1,42 @@
+/* About Section */
+#about {
+  padding: 2rem;
+  font-size: 20px;
+  color: black;
+  margin-bottom: 35px;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  min-height: 100vh; /* Make sure it takes up the full viewport height */
+}
+
+.about-text {
+  flex: 1; /* Allow the text to take up available space */
+}
+
+.about-photo {
+  flex: 1; /* Allow the image to take up available space */
+  text-align: center; /* Center the image horizontally if it's smaller */
+}
+
+.image-container {
+  max-width: 300px;
+  margin: 0, auto;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  max-width: 100%; /* Scale image to fit its container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Optional: Add rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+}
