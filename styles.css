@@ -1,11 +1,20 @@
 /* General CSS */
-body {
-  font-family: 'Times New Roman', Times, serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
   background: linear-gradient(60deg, red, pink, blue);
   background-size: 400% 400%;
   animation: gradient-animation 8s infinite;
+}
+
+body {
+  font-family: 'Times New Roman', Times, serif;
+  min-height: 100%;
   color: #333;
-  
 }
 
 @keyframes gradient-animation {
@@ -24,7 +33,6 @@ h1 {
   color: black;
   text-align: center;
   margin-top: 50px;
-
 }
 
 h2 {
