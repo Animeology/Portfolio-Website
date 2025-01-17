@@ -1,20 +1,29 @@
 /* About Section */
-#about {
-  padding: 2rem;
-  font-size: 20px;
-  color: black;
-  margin-bottom: 35px;
+
+html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: black; /* Simulate darkness */
+  color: white;
+  overflow: hidden;
+  cursor: none; /* Hide the default cursor */
+}
+
+.header {
+  color: white;
 }
 
 .about-container {
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
   margin: 2rem auto;
-  max-width: 1200px;
-  min-height: 100vh; /* Make sure it takes up the full viewport height */
+  max-width: 750px;
+  margin-top: 400px;
 }
 
 .about-text {
@@ -35,8 +44,28 @@
   max-width: 100%;
   height: auto;
   display: block;
-  max-width: 100%; /* Scale image to fit its container */
   height: auto; /* Maintain aspect ratio */
   border-radius: 10px; /* Optional: Add rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+}
+
+.guide {
+  color: white;
+  position: relative;
+  margin: 1rem;
+}
+
+/* The hidden content */
+.hidden-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  z-index: -1;
 }
