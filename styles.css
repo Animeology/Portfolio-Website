@@ -9,6 +9,7 @@ html {
   background: linear-gradient(60deg, red, pink, blue);
   background-size: 400% 400%;
   animation: gradient-animation 8s infinite;
+  min-height: 100vh;
 }
 
 body {
