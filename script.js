@@ -15,3 +15,12 @@ img.addEventListener("mouseout", () => {
     img.style.opacity = 1; // Fade in original image
   }, 300);
 });
+
+document.addEventListener("mousemove", (e) => {
+  const x = e.clientX;
+  const y = e.clientY;
+
+  document.documentElement.style.setProperty("--x", `${x}px`);
+  document.documentElement.style.setProperty("--y", `${y}px`);
+});
+
