@@ -7,24 +7,34 @@ html {
   background: black; /* Simulate darkness */
   color: white;
   overflow: hidden;
-  cursor: none; /* Hide the default cursor */
+
 }
 
-.header {
+.headers {
   color: white;
+  position: relative;
+  z-index: 10;
+  padding: 10px;
 }
 
 .about-container {
   color: white;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
   flex-wrap: wrap;
   gap: 1rem;
-  margin: 2rem auto;
+  width: 100%; /* Ensure it spans the full width of the viewport */
   max-width: 750px;
-  margin-top: 400px;
+  height: 100vh; /* Take up the full viewport height */
+  padding: 1rem; /* Add some padding */
+  box-sizing: border-box; /* Ensure padding doesn't affect the layout size */
+  position: relative;
+  margin: 0 auto; /* Center horizontally (fallback) */
+  z-index: 10; /* Ensure it appears above the flashlight effect */
+  text-align: center; /* Align text content in the center */
 }
+
 
 .about-text {
   flex: 1; /* Allow the text to take up available space */
@@ -55,17 +65,32 @@ html {
   margin: 1rem;
 }
 
-/* The hidden content */
 .hidden-content {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  position: fixed; /* Ensure it stays in place */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%);
   text-align: center;
   font-size: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: black;
-  z-index: -1;
+  color: white;
+  visibility: hidden; /* Hide initially */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+body:hover .hidden-content {
+  visibility: visible;
+  opacity: 1; /* Gradually make it visible */
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle, transparent 100px, black 200px); /* Flashlight effect */
+  pointer-events: none; /* Allow interaction below the flashlight */
+  transform: translate(calc(var(--x, 50%) - 100px), calc(var(--y, 50%) - 100px));
+  transition: transform 0.1s ease-out;
+  z-index: 100; /* Make sure it’s above the main page but below text */
 }
