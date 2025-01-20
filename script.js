@@ -30,29 +30,31 @@ document.addEventListener("mousemove", (e) => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  const hiddenElements = document.querySelector('.hidden-content', '.hidden-skill');
+  const hiddenElements = document.querySelectorAll('.hidden-content, .hidden-skill'); // Select both classes
 
-  if (hiddenElements) {
+  if (hiddenElements.length > 0) {
     document.addEventListener('mousemove', (e) => {
-      const rect = hiddenElements.getBoundingClientRect();
-      const contentCenterX = rect.left + rect.width / 2;
-      const contentCenterY = rect.top + rect.height / 2;
+      hiddenElements.forEach((element) => {
+        const rect = element.getBoundingClientRect();
+        const contentCenterX = rect.left + rect.width / 2;
+        const contentCenterY = rect.top + rect.height / 2;
 
-      const distance = Math.sqrt(
-        Math.pow(e.clientX - contentCenterX, 2) + Math.pow(e.clientY - contentCenterY, 2)
-      );
+        const distance = Math.sqrt(
+          Math.pow(e.clientX - contentCenterX, 2) + Math.pow(e.clientY - contentCenterY, 2)
+        );
 
-      const threshold = 150; // Distance threshold in pixels
+        const threshold = 150; // Distance threshold in pixels
 
-      if (distance < threshold) {
-        hiddenElements.style.visibility = 'visible';
-        hiddenElements.style.opacity = '1';
-      } else {
-        hiddenElements.style.visibility = 'hidden';
-        hiddenElements.style.opacity = '0';
-      }
+        if (distance < threshold) {
+          element.style.visibility = 'visible';
+          element.style.opacity = '1';
+        } else {
+          element.style.visibility = 'hidden';
+          element.style.opacity = '0';
+        }
+      });
     });
   } else {
-    console.error('Error: No hidden-content element not found!');
+    console.error('Error: No hidden elements (hidden-content or hidden-skill) found!');
   }
 });
