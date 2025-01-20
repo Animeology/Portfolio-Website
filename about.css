@@ -83,7 +83,7 @@ body::before {
 
 .hidden-skill {
   position: fixed; /* Ensure it stays in place */
-  bottom: 20%; /* Center vertically */
+  bottom: 30%; /* Center vertically */
   left: 30%; /* Center horizontally */
   text-align: center;
   font-size: 1.5rem;
