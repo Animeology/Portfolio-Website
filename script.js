@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
           Math.pow(e.clientX - contentCenterX, 2) + Math.pow(e.clientY - contentCenterY, 2)
         );
 
-        const threshold = 150; // Distance threshold in pixels
+        const threshold = 75; // Distance threshold in pixels
 
         if (distance < threshold) {
           element.style.visibility = 'visible';
@@ -57,4 +57,17 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     console.error('Error: No hidden elements (hidden-content or hidden-skill) found!');
   }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const hiddenSkills = document.querySelectorAll('.hidden-skill');
+
+  hiddenSkills.forEach((skill) => {
+    // Apply the custom positions from data attributes
+    const bottom = skill.getAttribute('data-bottom');
+    const left = skill.getAttribute('data-left');
+
+    skill.style.bottom = bottom;
+    skill.style.left = left;
+  });
 });
