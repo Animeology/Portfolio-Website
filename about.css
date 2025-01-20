@@ -7,7 +7,27 @@ html {
   background: black; /* Simulate darkness */
   color: white;
   overflow: hidden;
+}
 
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: black;
+  color: white;
+  overflow: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle, transparent 100px, black 200px); /* Flashlight effect */
+  pointer-events: none; /* Allow interaction below the flashlight */
+  transform: translate(calc(var(--x, 50%) - 100px), calc(var(--y, 50%) - 100px));
+  transition: transform 0.05s ease-out;
+  z-index: 100; /* Make sure it’s above the main page but below text */
 }
 
 .headers {
@@ -26,12 +46,12 @@ html {
   gap: 1rem;
   width: 100%; /* Ensure it spans the full width of the viewport */
   max-width: 750px;
-  height: 100vh; /* Take up the full viewport height */
   padding: 1rem; /* Add some padding */
   box-sizing: border-box; /* Ensure padding doesn't affect the layout size */
   position: relative;
   margin: 0 auto; /* Center horizontally (fallback) */
-  z-index: 10; /* Ensure it appears above the flashlight effect */
+  top: 30%;
+  z-index: 100; /* Ensure it appears above the flashlight effect */
   text-align: center; /* Align text content in the center */
 }
 
@@ -40,36 +60,19 @@ html {
   flex: 1; /* Allow the text to take up available space */
 }
 
-.about-photo {
-  flex: 1; /* Allow the image to take up available space */
-  text-align: center; /* Center the image horizontally if it's smaller */
-}
-
-.image-container {
-  max-width: 300px;
-  margin: 0, auto;
-}
-
-.image-container img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 10px; /* Optional: Add rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
-}
-
 .guide {
   color: white;
-  position: relative;
+  width: 100%; /* Ensure it spans the full width of the viewport */
   margin: 1rem;
+  top: 80%;
+  text-align: center;
 }
 
 .hidden-content {
   position: fixed; /* Ensure it stays in place */
-  top: 50%; /* Center vertically */
+  bottom: 45%; /* Center vertically */
   left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
   text-align: center;
   font-size: 1.5rem;
   color: white;
@@ -78,19 +81,24 @@ html {
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
-body:hover .hidden-content {
+.hidden-skill {
+  position: fixed; /* Ensure it stays in place */
+  bottom: 20%; /* Center vertically */
+  left: 30%; /* Center horizontally */
+  text-align: center;
+  font-size: 1.5rem;
+  color: white;
+  visibility: hidden; /* Hide initially */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.hidden-content:hover {
   visibility: visible;
   opacity: 1; /* Gradually make it visible */
 }
 
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: radial-gradient(circle, transparent 100px, black 200px); /* Flashlight effect */
-  pointer-events: none; /* Allow interaction below the flashlight */
-  transform: translate(calc(var(--x, 50%) - 100px), calc(var(--y, 50%) - 100px));
-  transition: transform 0.1s ease-out;
-  z-index: 100; /* Make sure it’s above the main page but below text */
+.hidden-skill:hover {
+  visibility: visible;
+  opacity: 1; /* Gradually make it visible */
 }
