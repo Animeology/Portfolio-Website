@@ -4,8 +4,7 @@ html {
   margin: 0;
   padding: 0;
   height: 100vh;
-  background: black; /* Simulate darkness */
-  color: white;
+  color: black;
   overflow: hidden;
 }
 
@@ -13,7 +12,6 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  background: black;
   color: white;
   overflow: hidden;
 }
@@ -30,15 +28,14 @@ body::before {
   z-index: 100; /* Make sure it’s above the main page but below text */
 }
 
-.headers {
-  color: white;
+.about-header {
   position: relative;
   z-index: 10;
   padding: 10px;
 }
 
 .about-container {
-  color: white;
+  color: black;
   display: flex;
   align-items: center; /* Center vertically */
   justify-content: center; /* Center horizontally */
@@ -61,29 +58,30 @@ body::before {
 }
 
 .guide {
-  color: white;
   width: 100%; /* Ensure it spans the full width of the viewport */
   margin: 1rem;
   top: 80%;
   text-align: center;
 }
 
-.hidden-content {
+.exposed-button {
   position: fixed; /* Ensure it stays in place */
-  bottom: 45%; /* Center vertically */
-  left: 50%; /* Center horizontally */
+  bottom: 42%; /* Center vertically */
+  left: 49.6%; /* Center horizontally */
   transform: translate(-50%, 0);
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: white;
-  visibility: hidden; /* Hide initially */
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  background-color: black;
+  z-index: 100;
+  border-radius: 5px; /* Optional: make it look nicer */
+  border: none; /* Optional: remove border */
+  cursor: pointer; /* Change cursor to pointer for interactivity */
 }
 
 .hidden-skill {
   position: fixed; /* Ensure it stays in place */
-  bottom: 30%; /* Center vertically */
+  bottom: 35%; /* Center vertically */
   left: 30%; /* Center horizontally */
   text-align: center;
   font-size: 1.5rem;
