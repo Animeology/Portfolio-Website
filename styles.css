@@ -78,12 +78,27 @@ p {
 }
 
 p.bottom-text {
+  color: black;
   position: fixed; /* Sticks to the viewport */
   bottom: 0;       /* Positions it at the bottom */
   width: 100%;     /* Makes it span the full width of the page */
   text-align: center; /* Centers the text */
   padding: 10px;   /* Optional: padding for spacing */
   z-index: 100;    /* Keeps it above other elements */
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #007bff;
 }
 
 /* */
