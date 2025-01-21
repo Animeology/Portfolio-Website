@@ -20,7 +20,6 @@ if (img) {
   console.error('Error: "hover-image" element not found.');
 }
 
-
 document.addEventListener("mousemove", (e) => {
   const x = e.clientX;
   const y = e.clientY;
@@ -30,7 +29,7 @@ document.addEventListener("mousemove", (e) => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  const hiddenElements = document.querySelectorAll('.hidden-content, .hidden-skill'); // Select both classes
+  const hiddenElements = document.querySelectorAll('.hidden-skill');
 
   if (hiddenElements.length > 0) {
     document.addEventListener('mousemove', (e) => {
@@ -45,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const threshold = 75; // Distance threshold in pixels
 
-        if (distance < threshold) {
+        if (isBackgroundBlack && distance < threshold) {
           element.style.visibility = 'visible';
           element.style.opacity = '1';
         } else {
@@ -69,6 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     skill.style.bottom = bottom;
     skill.style.left = left;
+
+    skill.style.visibility = 'hidden';
+    skill.style.opacity = '0';
   });
 });
 
@@ -77,31 +79,42 @@ const changeBgButton = document.querySelector('.exposed-button');
 const aboutContainer = document.querySelector('.about-container');
 const header = document.querySelector('.about-header');
 const bottomText = document.querySelector('.bottom-text');
+const hiddenSkills = document.querySelectorAll('.hidden-skill');
 
+let isBackgroundBlack = false; // Track whether the background is black
+
+// Function to handle the mouse movement for hidden-skill visibility
+const handleMouseMovement = (e) => {
+  hiddenSkills.forEach((element) => {
+    const rect = element.getBoundingClientRect();
+    const contentCenterX = rect.left + rect.width / 2;
+    const contentCenterY = rect.top + rect.height / 2;
+
+    const distance = Math.sqrt(
+      Math.pow(e.clientX - contentCenterX, 2) + Math.pow(e.clientY - contentCenterY, 2)
+    );
+
+    const threshold = 75; // Distance threshold in pixels
+
+    if (distance < threshold) {
+      element.style.visibility = 'visible';
+      element.style.opacity = '1';
+    } else {
+      element.style.visibility = 'hidden';
+      element.style.opacity = '0';
+    }
+  });
+};
+
+// Toggle background color and manage .hidden-skill visibility
 changeBgButton.addEventListener('click', () => {
+  isBackgroundBlack = !isBackgroundBlack; // Toggle background state
+
   const htmlElement = document.documentElement;
 
-  // Check the current background color
-  if (htmlElement.style.backgroundColor === 'black') {
-    // If it's black, change it to the custom background
-    aboutContainer.style.color = 'black'; // Adjust text color back to black
-    header.style.color = 'black';
-    bottomText.style.color = 'black';
-
-    htmlElement.style.removeProperty('background');  // Revert to custom background
-    htmlElement.style.removeProperty('background-size');
-    htmlElement.style.removeProperty('animation');
-
-    // Remove any inline styles applied to the button
-    changeBgButton.style.removeProperty('background-color');
-    changeBgButton.style.removeProperty('color');
-    changeBgButton.style.removeProperty('border-radius');
-    changeBgButton.style.removeProperty('border');
-
-    changeBgButton.textContent = 'Click and Explore'; // Revert to original button text
-  } else {
-    // If it's not black, change it to black
-    aboutContainer.style.color = 'white'; // Adjust text color to white
+  if (isBackgroundBlack) {
+    // Change background to black and adjust text color
+    aboutContainer.style.color = 'white';
     header.style.color = 'white';
     bottomText.style.color = 'white';
 
@@ -110,8 +123,35 @@ changeBgButton.addEventListener('click', () => {
     htmlElement.style.animation = ''; // Stop animation
 
     changeBgButton.textContent = 'Go Back'; // Change button text when in black mode
+
+    // Disable mouseover proximity logic by removing the event listener
+    document.removeEventListener('mousemove', handleMouseMovement);
+    
+    // Enable hidden-skill visibility
+    hiddenSkills.forEach((skill) => {
+      skill.style.visibility = 'hidden';
+      skill.style.opacity = '0';
+    });
+
+  } else {
+    // Revert to the previous background state and text color
+    aboutContainer.style.color = 'black';
+    header.style.color = 'black';
+    bottomText.style.color = 'black';
+
+    htmlElement.style.removeProperty('background'); // Revert to custom background
+    htmlElement.style.removeProperty('background-size');
+    htmlElement.style.removeProperty('animation');
+
+    changeBgButton.textContent = 'Click and Explore'; // Revert button text
+
+    // Hide hidden-skill elements
+    hiddenSkills.forEach((skill) => {
+      skill.style.visibility = 'hidden';
+      skill.style.opacity = '0';
+    });
+
+    // Re-enable mouseover proximity behavior by adding the event listener again
+    document.addEventListener('mousemove', handleMouseMovement);
   }
 });
-
-
-

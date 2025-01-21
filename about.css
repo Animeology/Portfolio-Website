@@ -84,7 +84,6 @@ body::before {
   background-color: #007bff;
 }
 
-
 .hidden-skill {
   position: fixed; /* Ensure it stays in place */
   bottom: 35%; /* Center vertically */
@@ -95,11 +94,6 @@ body::before {
   visibility: hidden; /* Hide initially */
   opacity: 0;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-}
-
-.hidden-content:hover {
-  visibility: visible;
-  opacity: 1; /* Gradually make it visible */
 }
 
 .hidden-skill:hover {
