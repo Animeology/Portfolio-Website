@@ -87,20 +87,6 @@ p.bottom-text {
   z-index: 100;    /* Keeps it above other elements */
 }
 
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: black;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #007bff;
-}
-
 /* */
 
 

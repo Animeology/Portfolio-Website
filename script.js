@@ -108,8 +108,7 @@ changeBgButton.addEventListener('click', () => {
     htmlElement.style.background = 'black'; // Set background to black
     htmlElement.style.backgroundSize = ''; // Reset background size
     htmlElement.style.animation = ''; // Stop animation
-    
-    changeBgButton.classList.add('button');
+
     changeBgButton.textContent = 'Go Back'; // Change button text when in black mode
   }
 });

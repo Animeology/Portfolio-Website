@@ -65,19 +65,25 @@ body::before {
 }
 
 .exposed-button {
-  position: fixed; /* Ensure it stays in place */
-  bottom: 42%; /* Center vertically */
-  left: 49.6%; /* Center horizontally */
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: fixed; /* Center relative to viewport */
+  bottom: 43%; /* Center vertically */
+  left: 50%; /* Center horizontally */
   transform: translate(-50%, 0);
   text-align: center;
-  font-size: 1rem;
-  color: white;
-  background-color: black;
   z-index: 100;
-  border-radius: 5px; /* Optional: make it look nicer */
-  border: none; /* Optional: remove border */
-  cursor: pointer; /* Change cursor to pointer for interactivity */
 }
+
+.exposed-button:hover {
+  background-color: #007bff;
+}
+
 
 .hidden-skill {
   position: fixed; /* Ensure it stays in place */
