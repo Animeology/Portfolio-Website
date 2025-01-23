@@ -89,6 +89,12 @@ p.bottom-text {
 
 /* */
 
+/* Images */
+img  {
+  width: 200px;
+  height: auto;
+}
+
 
 /* Nav bar */
 .navbar {
