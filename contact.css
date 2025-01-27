@@ -1,4 +1,27 @@
+.page-title {
+  text-align: center; /* Center the title */
+  font-size: 2rem; /* Adjust the size as needed */
+  margin-bottom: 20px; /* Add spacing below the title */
+  font-family: Arial, sans-serif; /* Optional: Pick a font */
+  color: #333; /* Adjust the color */
+}
+
 .image-container {
-  top: 50%;
-  left: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 200px);
+  gap: 20px;
+}
+
+.email-container {
+  margin: 20px;
+}
+
+.linkedin-container {
+  margin: 20px;
+}
+
+.github-container {
+  margin: 20px;
 }
