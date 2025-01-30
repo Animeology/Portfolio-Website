@@ -1,0 +1,19 @@
+.project-container {
+  display: flex;
+  justify-content: center;
+  height: calc(100vh - 150px);
+  margin-top: 40px;
+  gap: 50px;
+}
+
+.project-one {
+  
+}
+
+.project-two {
+
+}
+
+.project-three {
+
+}
