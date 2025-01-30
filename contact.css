@@ -16,12 +16,15 @@
 
 .email-container {
   margin: 20px;
+  cursor: pointer;
 }
 
 .linkedin-container {
   margin: 20px;
+  cursor: pointer;
 }
 
 .github-container {
   margin: 20px;
+  cursor: pointer;
 }
