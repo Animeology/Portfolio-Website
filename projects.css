@@ -30,3 +30,8 @@
 .project-link:hover {
   cursor: pointer;
 }
+
+img:hover {
+  height: 50%;
+  width: auto;
+}
