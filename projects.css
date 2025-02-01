@@ -1,19 +1,32 @@
 .project-container {
   display: flex;
   justify-content: space-around;
-  height: calc(100vh - 150px);
+  height: 100vh;
   margin-top: 40px;
   gap: 50px;
 }
 
 .project-one {
+  margin-top: 250px;
   width: auto;
 }
 
 .project-two {
+  margin-top: 250px;
   width: auto;
 }
 
 .project-three {
+  margin-top: 250px;
   width: auto;
+}
+
+.project-link {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 25px;
+}
+
+.project-link:hover {
+  cursor: pointer;
 }
