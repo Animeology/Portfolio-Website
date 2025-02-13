@@ -6,17 +6,7 @@
   gap: 50px;
 }
 
-.project-one {
-  margin-top: 250px;
-  width: auto;
-}
-
-.project-two {
-  margin-top: 250px;
-  width: auto;
-}
-
-.project-three {
+.project-section {
   margin-top: 250px;
   width: auto;
 }
@@ -31,7 +21,32 @@
   cursor: pointer;
 }
 
-img:hover {
-  height: 50%;
+.pop-up:hover h2 {
+  margin-bottom: 25px;
+}
+
+.pop-up img {
   width: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.pop-up p {
+  width: auto;
+  opacity: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.pop-up:hover {
+  height: 200px;
+  width: auto;
+}
+
+.pop-up:hover img {
+  transform: scale(1.2);
+}
+
+.pop-up:hover p {
+  opacity: 1;
+  margin-top: 25px;
+  transform: translateY(0);
 }
