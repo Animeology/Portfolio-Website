@@ -24,8 +24,8 @@ document.addEventListener("mousemove", (e) => {
   const x = e.clientX;
   const y = e.clientY;
 
-  document.documentElement.style.setProperty("--x", `${x}px`);
-  document.documentElement.style.setProperty("--y", `${y}px`);
+  document.documentElement.style.setProperty('--x', `${x}px`);
+  document.documentElement.style.setProperty('--y', `${y}px`);
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -74,84 +74,57 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Select the button element
 const changeBgButton = document.querySelector('.exposed-button');
 const aboutContainer = document.querySelector('.about-container');
 const header = document.querySelector('.about-header');
 const bottomText = document.querySelector('.bottom-text');
 const hiddenSkills = document.querySelectorAll('.hidden-skill');
+const flashlight = document.querySelector('.flashlight');
 
 let isBackgroundBlack = false; // Track whether the background is black
+let flashlightEnabled = false; // Track if flashlight is active
 
-// Function to handle the mouse movement for hidden-skill visibility
-const handleMouseMovement = (e) => {
-  hiddenSkills.forEach((element) => {
-    const rect = element.getBoundingClientRect();
-    const contentCenterX = rect.left + rect.width / 2;
-    const contentCenterY = rect.top + rect.height / 2;
-
-    const distance = Math.sqrt(
-      Math.pow(e.clientX - contentCenterX, 2) + Math.pow(e.clientY - contentCenterY, 2)
-    );
-
-    const threshold = 75; // Distance threshold in pixels
-
-    if (distance < threshold) {
-      element.style.visibility = 'visible';
-      element.style.opacity = '1';
-    } else {
-      element.style.visibility = 'hidden';
-      element.style.opacity = '0';
-    }
-  });
-};
-
-// Toggle background color and manage .hidden-skill visibility
+// Function to toggle background and flashlight effect
 changeBgButton.addEventListener('click', () => {
   isBackgroundBlack = !isBackgroundBlack; // Toggle background state
-
-  const htmlElement = document.documentElement;
+  flashlightEnabled = isBackgroundBlack;  // Sync flashlight with background
 
   if (isBackgroundBlack) {
     // Change background to black and adjust text color
+    document.documentElement.style.background = 'black';
     aboutContainer.style.color = 'white';
     header.style.color = 'white';
     bottomText.style.color = 'white';
 
-    htmlElement.style.background = 'black'; // Set background to black
-    htmlElement.style.backgroundSize = ''; // Reset background size
-    htmlElement.style.animation = ''; // Stop animation
+    // Activate flashlight effect
+    flashlight.style.opacity = '1';
 
-    changeBgButton.textContent = 'Go Back'; // Change button text when in black mode
+    changeBgButton.textContent = 'Go Back';
 
-    // Disable mouseover proximity logic by removing the event listener
-    document.removeEventListener('mousemove', handleMouseMovement);
-    
-    // Enable hidden-skill visibility
+    // Hide hidden skills initially
     hiddenSkills.forEach((skill) => {
       skill.style.visibility = 'hidden';
       skill.style.opacity = '0';
     });
 
   } else {
-    // Revert to the previous background state and text color
+    // Revert to original background and text colors
+    document.documentElement.style.removeProperty('background');
     aboutContainer.style.color = 'black';
     header.style.color = 'black';
     bottomText.style.color = 'black';
 
-    htmlElement.style.removeProperty('background'); // Revert to custom background
-    htmlElement.style.removeProperty('background-size');
-    htmlElement.style.removeProperty('animation');
+    // Deactivate flashlight effect
+    flashlight.style.opacity = '0';
 
-    changeBgButton.textContent = 'Click and Explore'; // Revert button text
+    changeBgButton.textContent = 'Click and Explore';
+  }
+});
 
-    // Hide hidden-skill elements
-    hiddenSkills.forEach((skill) => {
-      skill.style.visibility = 'hidden';
-      skill.style.opacity = '0';
-    });
-
-    // Re-enable mouseover proximity behavior by adding the event listener again
-    document.addEventListener('mousemove', handleMouseMovement);
+// Ensure flashlight follows cursor only when enabled
+document.addEventListener('mousemove', (e) => {
+  if (flashlightEnabled) {
+    document.documentElement.style.setProperty('--x', `${e.clientX}px`);
+    document.documentElement.style.setProperty('--y', `${e.clientY}px`);
   }
 });

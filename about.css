@@ -21,7 +21,7 @@ body::before {
   position: fixed;
   top: 0;
   left: 0;
-  background: radial-gradient(circle, transparent 100px, black 200px); /* Flashlight effect */
+  background: radial-gradient(circle 100px at var(--x) var(--y), rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0.8) 60%);  
   pointer-events: none; /* Allow interaction below the flashlight */
   transform: translate(calc(var(--x, 50%) - 100px), calc(var(--y, 50%) - 100px));
   transition: transform 0.05s ease-out;
@@ -99,4 +99,15 @@ body::before {
 .hidden-skill:hover {
   visibility: visible;
   opacity: 1; /* Gradually make it visible */
+}
+
+.flashlight {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  background: radial-gradient(circle 100px at var(--x) var(--y), rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0.8) 60%);
+  pointer-events: none;
 }
