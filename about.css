@@ -1,5 +1,10 @@
 /* About Section */
 
+:root {
+  --x: 50vw;
+  --y: 50vh;
+}
+
 html {
   margin: 0;
   padding: 0;
@@ -29,9 +34,11 @@ body::before {
 }
 
 .about-header {
+  color: white;
   position: relative;
   z-index: 10;
   padding: 10px;
+  margin-bottom: 30px;
 }
 
 .about-container {
@@ -52,36 +59,14 @@ body::before {
   text-align: center; /* Align text content in the center */
 }
 
-
 .about-text {
+  color: white;
   flex: 1; /* Allow the text to take up available space */
 }
 
 .guide {
-  width: 100%; /* Ensure it spans the full width of the viewport */
-  margin: 1rem;
-  top: 80%;
-  text-align: center;
-}
-
-.exposed-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: black;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  position: fixed; /* Center relative to viewport */
-  bottom: 43%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, 0);
-  text-align: center;
-  z-index: 100;
-}
-
-.exposed-button:hover {
-  background-color: #007bff;
+  margin-top: 25px;
+  font-size: large;
 }
 
 .hidden-skill {
@@ -107,7 +92,7 @@ body::before {
   left: 0;
   width: 100vw;
   height: 100vh;
-  opacity: 0;
+  opacity: 1;
   background: radial-gradient(circle 100px at var(--x) var(--y), rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0.8) 60%);
   pointer-events: none;
 }
