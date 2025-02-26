@@ -25,21 +25,19 @@
 
   <h1 class="page-title">Contact Me!</h1>
   <div class="container">
-  <div class="email-container">
-    <h2>Send Me an Email</h2>
-    <form id="contact-form">
-      <input type="text" id="name" name="name" placeholder="Your Name" required>
-      <input type="email" id="email" name="email" placeholder="Your Email" required>
-      <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-    <p id="form-status"></p>
-  </div>    
+    <div class="email-container">
+      <h2>Send Me an Email</h2>
+      <form id="contact-form">
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <p id="form-status"></p>
+    </div>
     <div class="linkedin-container">
-      <h2>LinkenIn</h2>
-      <a href="https://www.linkedin.com/in/software-nguyen-gineer/" target="_blank">
-        <img src="images/linkedin.png" alt="linkedin icon">
-      </a>
+      <h2>Latest LinkenIn Posts</h2>
+      <div id="rss-feed" class="feed-container"></div>
     </div>
     <div class="github-container">
       <h2>Github</h2>
@@ -50,6 +48,7 @@
   </div>
 
   <p class="bottom-text">&copy; 2024 Joseph Nguyen. All rights reserved.</p>
+  <script src="script.js"></script>
 </body>
 
 </html>

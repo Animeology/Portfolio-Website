@@ -92,3 +92,48 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+// RSS Feed
+document.addEventListener("DOMContentLoaded", function () {
+  const rssFeedUrl = "https://rss.app/feeds/DaR8bkbeVvxPcQbO.xml";
+  const feedContainer = document.getElementById("rss-feed");
+
+  async function fetchRSS() {
+    try {
+      const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssFeedUrl)}`);
+      const data = await response.json();
+
+      if (data.items) {
+        data.items.slice(0, 5).forEach(post => { // Show latest 5 posts
+          const postElement = document.createElement("div");
+          postElement.classList.add("rss-post");
+
+          // Extract image from 'enclosure' or 'description'
+          let imageUrl = post.enclosure?.link || "";
+          if (!imageUrl) {
+            // Try extracting image from description (sometimes LinkedIn includes them here)
+            const imgMatch = post.description.match(/<img[^>]+src="([^">]+)"/);
+            if (imgMatch) {
+              imageUrl = imgMatch[1];
+            }
+          }
+
+          postElement.innerHTML = `
+            ${imageUrl ? `<img src="${imageUrl}" alt="LinkedIn Post Image" class="rss-image">` : ""}
+            <h3><a href="${post.link}" target="_blank">${post.title}</a></h3>
+            <p>${post.description.replace(/<img[^>]*>/g, "").substring(0, 150)}...</p>
+            <hr>
+          `;
+          feedContainer.appendChild(postElement);
+        });
+      } else {
+        feedContainer.innerHTML = "<p>No recent posts available.</p>";
+      }
+    } catch (error) {
+      feedContainer.innerHTML = "<p>Failed to load LinkedIn posts.</p>";
+      console.error("Error fetching RSS feed:", error);
+    }
+  }
+
+  fetchRSS();
+});
