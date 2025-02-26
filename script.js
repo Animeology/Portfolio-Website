@@ -95,45 +95,64 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // RSS Feed
 document.addEventListener("DOMContentLoaded", function () {
-  const rssFeedUrl = "https://rss.app/feeds/DaR8bkbeVvxPcQbO.xml";
-  const feedContainer = document.getElementById("rss-feed");
+  const feeds = [
+    {
+      url: "https://rss.app/feeds/DaR8bkbeVvxPcQbO.xml",
+      containerId: "rss-feed",
+      title: "My Latest LinkedIn Posts",
+      linkColor: "#0073b1"
+    },
+    {
+      url: "https://rss.app/feeds/bxLxuvjYL93lhJvZ.xml", 
+      containerId: "github-rss-feed",
+      title: "Latest GitHub Activity",
+      linkColor: "#0366d6"
+    }
+  ];
 
-  async function fetchRSS() {
+  async function fetchRSS(feed) {
+    const feedContainer = document.getElementById(feed.containerId);
+
     try {
-      const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssFeedUrl)}`);
+      const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`);
       const data = await response.json();
 
       if (data.items) {
-        data.items.slice(0, 5).forEach(post => { // Show latest 5 posts
+        data.items.slice(0, 5).forEach(item => {
           const postElement = document.createElement("div");
           postElement.classList.add("rss-post");
 
-          // Extract image from 'enclosure' or 'description'
-          let imageUrl = post.enclosure?.link || "";
-          if (!imageUrl) {
-            // Try extracting image from description (sometimes LinkedIn includes them here)
-            const imgMatch = post.description.match(/<img[^>]+src="([^">]+)"/);
-            if (imgMatch) {
-              imageUrl = imgMatch[1];
+          // Extract image (for LinkedIn) or skip (for GitHub)
+          let imageUrl = "";
+          if (feed.containerId === "rss-feed") { // LinkedIn only
+            imageUrl = item.enclosure?.link || "";
+            if (!imageUrl) {
+              const imgMatch = item.description.match(/<img[^>]+src="([^">]+)"/);
+              if (imgMatch) {
+                imageUrl = imgMatch[1];
+              }
             }
           }
 
           postElement.innerHTML = `
-            ${imageUrl ? `<img src="${imageUrl}" alt="LinkedIn Post Image" class="rss-image">` : ""}
-            <h3><a href="${post.link}" target="_blank">${post.title}</a></h3>
-            <p>${post.description.replace(/<img[^>]*>/g, "").substring(0, 150)}...</p>
+            ${imageUrl ? `<img src="${imageUrl}" alt="Post Image" class="rss-image">` : ""}
+            <h3><a href="${item.link}" target="_blank" style="color: ${feed.linkColor};">${item.title}</a></h3>
+            <p>${item.author ? item.author + " - " : ""}${new Date(item.pubDate).toLocaleDateString()}</p>
+            <p>${item.description.replace(/<img[^>]*>/g, "").substring(0, 150)}...</p>
             <hr>
           `;
+
           feedContainer.appendChild(postElement);
         });
       } else {
-        feedContainer.innerHTML = "<p>No recent posts available.</p>";
+        feedContainer.innerHTML = `<p>No recent activity available.</p>`;
       }
     } catch (error) {
-      feedContainer.innerHTML = "<p>Failed to load LinkedIn posts.</p>";
-      console.error("Error fetching RSS feed:", error);
+      feedContainer.innerHTML = `<p>Failed to load feed.</p>`;
+      console.error(`Error fetching ${feed.title}:`, error);
     }
   }
 
-  fetchRSS();
+  // Fetch both feeds
+  feeds.forEach(feed => fetchRSS(feed));
 });
