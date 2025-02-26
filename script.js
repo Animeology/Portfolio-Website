@@ -68,3 +68,27 @@ document.addEventListener('DOMContentLoaded', () => {
     console.error('Error: "hover-image" element not found.');
   }
 });
+
+// Email Form
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("contact-form").addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const formData = new FormData(this);
+    const response = await fetch("https://formspree.io/f/{your-form-id}", {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    const statusMessage = document.getElementById("form-status");
+    if (response.ok) {
+      statusMessage.textContent = "Message sent successfully!";
+      this.reset();
+    } else {
+      statusMessage.textContent = "Oops! Something went wrong.";
+    }
+  });
+});
